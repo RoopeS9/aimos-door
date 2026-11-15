@@ -2,9 +2,13 @@
 
 **An open door for purchasing agents: any bot can buy from a wholesaler, inside limits its buyer has signed.**
 
-Built for Valio Aimo's *Trusted Trade Agents* challenge at Junction 2026.
+Built solo for Valio Aimo's *Trusted Trade Agents* challenge at Junction 2026.
 
-[![Watch the demo video](docs/images/video-poster.jpg)](docs/media/aimos-door-demo.mp4)
+
+
+https://github.com/user-attachments/assets/c7f67adc-180f-47e9-b916-e393e06bdd7d
+
+
 
 ▶ **[Demo video, 1 min 50 s](docs/media/aimos-door-demo.mp4)**
 
@@ -94,7 +98,7 @@ make test
 
 ## How it was built
 
-The product and design decisions are mine. The code was written with AI coding agents, against acceptance cases agreed first and re-run independently before each merge.
+The product and design decisions are mine. The code was written with AI coding agents (Claude, Codex, Opencode), against acceptance cases agreed first and re-run independently before each merge.
 
 ## Licence
 
