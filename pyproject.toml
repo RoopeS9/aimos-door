@@ -7,6 +7,9 @@ dependencies = ["fastapi>=0.115", "uvicorn>=0.30", "httpx>=0.27", "python-dotenv
 
 [dependency-groups]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.24"]
+mcp = [
+    "mcp>=2.3.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -17,3 +20,4 @@ markers = ["live: running server and real upstream API/model"]
 
 [tool.uv]
 package = false
+default-groups = ["dev", "mcp"]

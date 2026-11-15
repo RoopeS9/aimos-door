@@ -200,3 +200,9 @@ Only the buyer can change a signed limit, and only after identifying themself. T
 | N11 | 8 | Cheapest and in-stock follow-ups | After a products answer, "which is the cheapest?" names the cheapest product that is in stock by unit price for that kind of product, and lists the products with the cheapest first. |
 | N12 | 8 | Product scope fit for exploring | The demo mandates allow food and drink and exclude non-food (tableware, cleaning, hygiene, office and similar). The lactose-free must-hold applies to dairy products only. So an order for coffee, bread or oat drink inside the spend limits passes the scope and must-hold checks; a dairy product without a manufacturer's lactose-free statement still needs the buyer's confirmation; a non-food order is held for scope. Acts one to three behave as before. |
 | N13 | 8 | Compound names | "Ice cream" returns ice cream, while "cream" still returns cream. |
+
+## O. The door as MCP tools (milestone 9)
+
+| ID | M | Case | Pass when |
+|---|---|---|---|
+| O01 | 9 | An MCP client buys | Against the fixture door, an MCP client connected to `examples/mcp_server.py` lists the tools, finds a product with its price, matches a need, gets a signed offer and places an order that commits with all ten checks passed, passing only short ids and never seeing a mandate, offer or receipt token. Repeating the order call returns the same order. An order over the cap comes back held with the buyer's link. No tool exists for sign-off, undo, limit changes, proposals, mandate registration or reset. |

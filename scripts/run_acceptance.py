@@ -19,7 +19,7 @@ def main() -> int:
     report = output / "acceptance.xml"
     if report.exists():
         report.unlink()
-    ids = re.findall(r"^\| ([A-N]\d{2}) \| (\d) \|", (ROOT / "ACCEPTANCE.md").read_text(), re.M)
+    ids = re.findall(r"^\| ([A-O]\d{2}) \| (\d) \|", (ROOT / "ACCEPTANCE.md").read_text(), re.M)
     env = dict(os.environ, PYTHONPATH=str(ROOT))
     run = subprocess.run([sys.executable, "-m", "pytest", "tests/acceptance", "-q", "--tb=short", f"--junitxml={report}"], cwd=ROOT, env=env)
     # Real runs always require every ACCEPTANCE row. Isolated report-format
@@ -29,7 +29,7 @@ def main() -> int:
     results = {}
     if report.exists():
         for case in ET.parse(report).iter("testcase"):
-            match = re.search(r"(?:test_)?([A-N]\d{2})(?:$|_)", case.attrib.get("name", ""))
+            match = re.search(r"(?:test_)?([A-O]\d{2})(?:$|_)", case.attrib.get("name", ""))
             if match:
                 case_id = match[1]
                 status = "FAIL" if any(case.find(k) is not None for k in ("failure", "error", "skipped")) else "PASS"

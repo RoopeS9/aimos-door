@@ -58,6 +58,12 @@ Then let a forty-line agent place an order over plain HTTP and verify the signed
 uv run python examples/minimal_agent.py --door http://127.0.0.1:8766
 ```
 
+**MCP.** The same operations are also MCP tools, so Claude, Cursor or any other MCP client can buy through the door. The agent can search, match, get an offer, order and read the result; approving a hold, undoing and changing limits stay with the buyer and have no tool.
+
+```sh
+uv run python examples/mcp_server.py --door http://127.0.0.1:8766 --customer hotel
+```
+
 Needs Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js 22.12+ and make. Running against the real catalogue and a real model needs event keys; see [docs/SETUP.md](docs/SETUP.md).
 
 ## What is real, what is simulated

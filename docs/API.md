@@ -151,6 +151,10 @@ The portable bot calls only public HTTP operations. A simpler bot can provide th
 
 For an interview, send `stage: "interview"`, `customer_id`, and `order_id`. The bot fetches the server's current question using its mandate/bot read headers and asks in its own words. Send `stage: "answer"` with the human's `message` and chosen `scope`; the order remains held and a confirmation summary is returned. Finally send `stage: "confirm"`, `confirmed: true`, the exact returned `confirmation_summary` and `question_hash`, and the human's `X-Buyer-Session` header. The route forwards that header only for this one confirmed sign-off; it is not stored on the bot. Altered or stale summaries are refused. The bot cannot replace the door's accepted answers or broaden their scopes. For an order with `approvable: false`, the interview presents only rejection and never prepares or confirms an approval.
 
+## MCP
+
+[examples/mcp_server.py](../examples/mcp_server.py) is a stdio MCP server over the public operations above, for MCP clients such as Claude or Cursor: `uv run python examples/mcp_server.py --door <url> --customer hotel`. Its tools are `search_catalogue`, `match_need`, `match_usual_order`, `request_offer`, `place_order`, `get_order`, `get_limits`, `get_usual_order` and `get_record`. Options and signed offers stay in the server's memory and the model passes short ids (`opt-1`, `offer-1`); mandates, offers and receipts are not returned unless `get_order` is asked for the receipt. Each offer has one idempotency key, so repeating `place_order` returns the same order. There is deliberately no tool for sign-off, undo, limit changes, proposals, mandate registration or reset: an agent cannot approve its own hold, and a held order comes back with the buyer's `continue_url`. Identity is `--customer` (the demo mandate from `/demo/customers`, re-read on every call) or the environment variables `AIMO_MANDATE` and `AIMO_BOT_ID`; `AIMO_DOOR_URL` and `AIMO_ACCESS_CODE` are optional.
+
 ## Limits and demo operations
 
 | Operation | Purpose |

@@ -1,6 +1,6 @@
 # Status
 
-Last verified on Sunday 15 November 2026, commit `f6bed54`.
+Last verified on Sunday 15 November 2026, commit `995f5c5`.
 
 ## What is built
 
@@ -11,11 +11,12 @@ Last verified on Sunday 15 November 2026, commit `f6bed54`.
 - **Changing a limit:** the buyer changes a signed limit after a simulated strong identification; the change is a new signed mandate version on the record.
 - **A conversational reference bot:** it answers questions, lists products with price and stock, reads the buyer's limits and usual order from the door, drafts when a date is missing, and orders by itself only on a complete instruction. It uses the same public operations as any other agent.
 - **A minimal example agent:** [examples/minimal_agent.py](examples/minimal_agent.py), plain HTTP, about forty lines.
+- **An MCP server:** [examples/mcp_server.py](examples/mcp_server.py) exposes the agent-side operations as MCP tools over stdio. It has no tool for any buyer-only action.
 - **A console** with five views: Chat, Door's answer, Sign-off, Limits view and Record.
 
 ## How it was verified
 
-- `make acceptance`: 115 of 115 cases in [ACCEPTANCE.md](ACCEPTANCE.md) pass (sections A to N), run on a clean copy against a live local server with real catalogue data, the Valio mock API and the configured model.
+- `make acceptance`: 116 of 116 cases in [ACCEPTANCE.md](ACCEPTANCE.md) pass (sections A to O), run on a clean copy against a live local server with real catalogue data, the Valio mock API and the configured model.
 - `make test`: 104 unit tests pass.
 - The three demo requests were each sent eight times to the configured model and gave the same outcome every time: a committed order, a held order under limited stock, and a reorder committed with a notice.
 - The chat was walked through with about sixty varied messages in English and Finnish; the problems found became cases N05 to N13.
