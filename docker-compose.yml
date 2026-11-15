@@ -1,0 +1,25 @@
+services:
+  door:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aimos-door:local
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      DOOR_API_BASE_URL: http://127.0.0.1:8000
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://door.example.com}
+    ports:
+      - "127.0.0.1:${DOOR_PORT:-8650}:8000"
+    volumes:
+      - door-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 180s
+      retries: 5
+
+volumes:
+  door-data:

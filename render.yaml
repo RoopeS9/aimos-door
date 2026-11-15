@@ -1,0 +1,35 @@
+# Optional alternative; Docker Compose is the primary deployment route.
+services:
+  - type: web
+    name: aimos-door
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    disk:
+      name: door-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: VALIO_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: AGENT_PROVIDER
+        value: openai_compatible
+      - key: AGENT_BASE_URL
+        value: https://inference.verda.com/v1
+      - key: AGENT_API_KEY
+        sync: false
+      - key: AGENT_MODEL
+        value: deepseek-4-1-flash-1017
+      - key: DATA_DIR
+        value: /app/data
+      - key: DOOR_API_BASE_URL
+        value: http://127.0.0.1:8000
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: DEMO_ACCESS_CODE
+        sync: false
+      - key: MODEL_DAILY_CAP
+        value: "300"

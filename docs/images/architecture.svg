@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Aimo's Door architecture</title>
+  <desc id="d">A purchasing agent and a buyer on the left, the door in the middle with its open API, ten checks, signer and decision record, and the wholesaler's systems on the right. Each connection is labelled with the standard it uses.</desc>
+  <defs>
+    <marker id="end" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#005670"/></marker>
+    <marker id="start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#005670"/></marker>
+  </defs>
+  <rect width="1200" height="560" rx="16" fill="#F7FBFC"/>
+
+  <!-- Left: who talks to the door -->
+  <g fill="#FFFFFF" stroke="#005670" stroke-width="1.5">
+    <rect x="30" y="86" width="220" height="90" rx="10"/>
+    <rect x="30" y="290" width="220" height="110" rx="10"/>
+  </g>
+  <g text-anchor="middle" fill="#0B2A33">
+    <text x="140" y="124" font-size="18" font-weight="700">Purchasing agent</text>
+    <text x="140" y="149" font-size="13" fill="#4A6670">Any bot, any model</text>
+    <text x="140" y="336" font-size="18" font-weight="700">Buyer</text>
+    <text x="140" y="361" font-size="13" fill="#4A6670">Signs the limits,</text>
+    <text x="140" y="379" font-size="13" fill="#4A6670">answers the holds</text>
+  </g>
+
+  <!-- Middle: the door -->
+  <rect x="450" y="30" width="320" height="480" rx="14" fill="#E6F1F4" stroke="#005670" stroke-width="2"/>
+  <text x="610" y="70" text-anchor="middle" font-size="24" font-weight="700" fill="#005670">Aimo’s Door</text>
+  <g fill="#FFFFFF" stroke="#005670" stroke-width="1.2">
+    <rect x="474" y="95" width="272" height="72" rx="8"/>
+    <rect x="474" y="181" width="272" height="72" rx="8"/>
+    <rect x="474" y="267" width="272" height="72" rx="8"/>
+    <rect x="474" y="353" width="272" height="72" rx="8"/>
+  </g>
+  <g text-anchor="middle" fill="#0B2A33">
+    <text x="610" y="126" font-size="16" font-weight="700">Open API</text>
+    <text x="610" y="148" font-size="13" fill="#4A6670">Find, signed fixed offer, order</text>
+    <text x="610" y="212" font-size="16" font-weight="700">Ten checks</text>
+    <text x="610" y="234" font-size="13" fill="#4A6670">Rules against the signed mandate</text>
+    <text x="610" y="298" font-size="16" font-weight="700">Signer</text>
+    <text x="610" y="320" font-size="13" fill="#4A6670">ES256, public JWK Set</text>
+    <text x="610" y="384" font-size="16" font-weight="700">Decision record</text>
+    <text x="610" y="406" font-size="13" fill="#4A6670">Hash-chained, held by both sides</text>
+    <text x="610" y="462" font-size="13" font-weight="600" fill="#005670">FastAPI · Python · SQLite · Docker</text>
+    <text x="610" y="484" font-size="12" fill="#4A6670">React console served by the same app</text>
+  </g>
+
+  <!-- Right: the wholesaler's systems -->
+  <g fill="#FFFFFF" stroke="#005670" stroke-width="1.5">
+    <rect x="950" y="60" width="220" height="70" rx="10"/>
+    <rect x="950" y="160" width="220" height="70" rx="10"/>
+    <rect x="950" y="260" width="220" height="70" rx="10"/>
+    <rect x="950" y="360" width="220" height="70" rx="10"/>
+  </g>
+  <g text-anchor="middle" fill="#0B2A33">
+    <text x="1060" y="90" font-size="16" font-weight="700">Catalogue</text>
+    <text x="1060" y="112" font-size="13" fill="#4A6670">17,546 products</text>
+    <text x="1060" y="190" font-size="16" font-weight="700">Price and stock</text>
+    <text x="1060" y="212" font-size="13" fill="#4A6670">Valio Aimo mock API, cutoffs</text>
+    <text x="1060" y="290" font-size="16" font-weight="700">Order book</text>
+    <text x="1060" y="312" font-size="13" fill="#4A6670">Simulated in the demo</text>
+    <text x="1060" y="390" font-size="16" font-weight="700">Label model</text>
+    <text x="1060" y="412" font-size="13" fill="#4A6670">Only names product types</text>
+  </g>
+
+  <!-- Wires, each labelled with its standard -->
+  <g stroke="#005670" stroke-width="2" fill="none">
+    <line x1="254" y1="131" x2="446" y2="131" marker-start="url(#start)" marker-end="url(#end)"/>
+    <line x1="254" y1="322" x2="446" y2="322" marker-end="url(#end)"/>
+    <line x1="446" y1="374" x2="254" y2="374" marker-end="url(#end)"/>
+    <line x1="774" y1="95" x2="946" y2="95" marker-start="url(#start)" marker-end="url(#end)"/>
+    <line x1="774" y1="195" x2="946" y2="195" marker-start="url(#start)" marker-end="url(#end)"/>
+    <line x1="774" y1="295" x2="946" y2="295" marker-start="url(#start)" marker-end="url(#end)"/>
+    <line x1="774" y1="395" x2="946" y2="395" marker-start="url(#start)" marker-end="url(#end)"/>
+  </g>
+  <g text-anchor="middle" font-size="12.5" font-weight="600" fill="#005670">
+    <text x="350" y="121">OpenAPI · HTTPS</text>
+    <text x="350" y="312">JWS mandate (AP2-style)</text>
+    <text x="350" y="364">Hold (UCP-style), receipt</text>
+    <text x="860" y="85">GTIN</text>
+    <text x="860" y="185">REST · JSON</text>
+    <text x="860" y="285">Peppol mapping</text>
+    <text x="860" y="385">REST · JSON</text>
+  </g>
+  <text x="600" y="540" text-anchor="middle" font-size="12.5" fill="#4A6670">In use: OpenAPI, JWS, JWK, GTIN. Mapped by design, not claimed as conformance: AP2, UCP, Peppol.</text>
+</svg>

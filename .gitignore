@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+data/
+*.sqlite
+*.sqlite3
+*.db
+.DS_Store
+codex-run*.log
+codex-last-message*.md
+keys/
